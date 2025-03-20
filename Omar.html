@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Neón</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #050505;
+            /* Darker background */
+            color: #f0f0f0;
+            /* Light gray text */
+            text-align: center;
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #00ffff, #ff00ff);
+            /* Cyan to Magenta */
+            color: #000;
+            /* Black text on vibrant background */
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 10px #00ffff);
+            /* Neon glow */
+        }
+
+        .menu-button {
+            background: #ff00ff;
+            /* Magenta */
+            color: #fff;
+            padding: 10px 20px;
+            border: 2px solid #00ffff;
+            /* Cyan border */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-shadow: 0 0 5px #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #00ffff;
+            /* Stronger cyan glow */
+        }
+
+        section {
+            padding: 60px 20px;
+            /* Increased top padding */
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+            /* Magenta glow */
+            background: rgba(0, 255, 255, 0.05);
+            /* Subtle cyan overlay */
+            text-align: left;
+            /* Align text within sections to the left */
+            position: relative;
+            /* For potential absolute positioning of elements */
+            margin-top: 80px;
+            /* Adjust for fixed header */
+        }
+
+        section h2 {
+            color: #00ffff;
+            /* Cyan section titles */
+            text-shadow: 0 0 8px #00ffff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        section ul {
+            list-style-type: disc;
+            padding-left: 30px;
+        }
+
+        section li {
+            margin-bottom: 10px;
+            color: #f0f0f0;
+        }
+
+        section p {
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #000;
+            color: #ff00ff;
+            /* Magenta footer text */
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            text-shadow: 0 0 5px #ff00ff;
+            z-index: 10;
+        }
+
+        .neon-effect {
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+        }
+
+        .interactive-button {
+            background: linear-gradient(to right, #ff00ff, #00ffff);
+            color: #000;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 0 0 5px #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .interactive-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #ff00ff;
+        }
+
+        #quote-section {
+            text-align: center;
+        }
+
+        #quote-text {
+            font-style: italic;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            min-height: 2em;
+            /* Asegura espacio para el texto */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #map-container {
+            width: 90%;
+            max-width: 600px;
+            height: 300px;
+            margin: 20px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 15px #00ffff;
+        }
+
+        /* Loading animation styles */
+        .loading {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="gym.jpg" alt="Logo" class="logo">
+        Bienvenido a GYM Neón<span class="neon-effect"></span>
+        <button class="menu-button">Menú</button>
+    </header>
+
+    <section id="about">
+        <h2><span class="neon-effect">Sobre Nosotros</span></h2>
+        <p>En <span class="neon-effect">GYM Neón Interactivo</span>, te ofrecemos una experiencia de fitness única, inmersa
+            en un ambiente vibrante de luces neón que te motivarán a alcanzar tus metas. Nuestro enfoque combina
+            entrenamientos de vanguardia con la energía estimulante de un entorno visualmente impactante.</p>
+        <p>Contamos con equipos de última generación, instructores certificados y una variedad de clases diseñadas para
+            todos los niveles y objetivos. ¡Prepárate para sudar, energizarte y transformar tu cuerpo en un espacio donde la
+            motivación nunca se apaga!</p>
+        <button class="interactive-button" onclick="showAlert('¡Únete a la energía neón!')">¡Siente la Energía!</button>
+    </section>
+
+    <section id="services">
+        <h2><span class="neon-effect">Nuestros Servicios</span></h2>
+        <ul>
+            <li><strong>Entrenamiento Personalizado:</strong> Programas diseñados a tu medida para maximizar tus
+                resultados.</li>
+            <li><strong>Clases Grupales Neón:</strong> Sumérgete en clases de spinning, zumba, yoga y más, con efectos de
+                luz neón sincronizados con la música.</li>
+            <li><strong>Zona de Pesas y Fuerza:</strong> Equipos modernos y un ambiente electrificante para potenciar tu
+                musculación.</li>
+            <li><strong>Asesoría Nutricional Interactiva:</strong> Planes de alimentación personalizados y seguimiento
+                online.</li>
+            <li><strong>Retos y Eventos Neón:</strong> Participa en desafíos temáticos y eventos llenos de luz y diversión.
+            </li>
+        </ul>
+        <button class="interactive-button" onclick="showServiceDetails()">Ver Detalles de Servicios</button>
+    </section>
+
+    <section id="schedule">
+        <h2><span class="neon-effect">Horarios</span></h2>
+        <p><strong>Lunes a Viernes:</strong> 6:00 AM - 10:00 PM</p>
+        <p><strong>Sábados y Domingos:</strong> 8:00 AM - 8:00 PM</p>
+        <p>Consulta el horario detallado de nuestras clases grupales <a href="#"
+                style="color: #00ffff; text-decoration: none;">aquí</a>.</p>
+    </section>
+
+    <section id="quote-section">
+        <h2><span class="neon-effect">Frase Motivacional</span></h2>
+        <p id="quote-text" class="loading">Cargando frase...</p>
+        <button class="interactive-button" onclick="fetchNewQuote()">Obtener Otra Frase</button>
+    </section>
+
+    <section id="contact">
+        <h2><span class="neon-effect">Contacto</span></h2>
+        <p><strong>Email:</strong> <a href="mailto:al222210730@gmail.com"
+                style="color: #ff00ff; text-decoration: none;">al222210730@gmail.com</a></p>
+        <p><strong>Teléfono:</strong> +52 55 1234 5678</p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/527227477266" style="color: #00ffff; text-decoration: none;"
+                target="_blank">+52 7227477266</a></p>
+        <p><strong>Dirección:</strong> Calle Neón 123, Toluca de Lerdo</p>
+        <div id="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.576397859316!2d-99.5737842850949!3d19.38984778688878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2b01f0a0a0a0%3A0x0a0a0a0a0a0a0a0!2sTu%20Lugar%20Fitness%20-%20San%20Mateo%20Atenco!5e0!3m2!1ses-419!2smx!4v1703780410099!5m2!1ses-419!2smx" width="100%" height="100%"
+                style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 - <span class="neon-effect">GYM Neón</span> - Todos los derechos reservados
+    </footer>
+
+    <script>
+        window.watsonAssistantChatOptions = {
+            integrationID: "34e9c4fb-5476-4449-b16d-15270f4e1dae", // The ID of this integration.
+            region: "au-syd", // The region your integration is hosted in.
+            serviceInstanceID: "5508704c-2fe7-48fb-b21b-a40e5f799117", // The ID of your service instance.
+            onLoad: async (instance) => {
+                await instance.render();
+            }
+        };
+        setTimeout(function () {
+            const t = document.createElement('script');
+            t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+            document.head.appendChild(t);
+        });
+
+        function showAlert(message) {
+            alert(message);
+        }
+
+        function showServiceDetails() {
+            alert("Próximamente podrás explorar los detalles de cada uno de nuestros emocionantes servicios neón.");
+        }
+
+        async function fetchNewQuote() {
+            const quoteText = document.getElementById('quote-text');
+            quoteText.classList.add('loading');
+            quoteText.textContent = "Cargando frase..."; // Mensaje de carga
+
+            try {
+                const response = await fetch('https://api.quotable.io/random');
+                const data = await response.json();
+                quoteText.textContent = `"${data.content}" - ${data.author}`;
+            } catch (error) {
+                console.error("Error al obtener la frase:", error);
+                quoteText.textContent = "No se pudo cargar la frase en este momento.";
+            } finally {
+                quoteText.classList.remove('loading');
+            }
+        }
+
+        // Initial quote fetch on page load
+        fetchNewQuote();
+    </script>
+</body>
+
+</html>
